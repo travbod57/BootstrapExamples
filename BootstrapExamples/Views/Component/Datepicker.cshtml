@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Date Picker";
+}
+
+<h2>Date Picker</h2>
+
+<link href="../../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/bootstrap-datepicker.standalone.min.css" rel="stylesheet" type="text/css" />
+
+@section scripts {
+    
+    <script src="../../Scripts/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script>
+
+        $("input").datepicker({
+
+            format: "dd/mm/yyyy",
+            clearBtn: true,
+            autoclose: true,
+            orientation: "top"
+
+        }).on("changeDate", function (e) {
+
+            if (e.date != null) {
+                alert("date changed");
+            }
+
+        });
+  
+    </script>
+}
+
+<form role="form">
+    @Html.TextBox("date", null, new { style = "width: 100%;", @class = "form-control" }) 
+</form>
